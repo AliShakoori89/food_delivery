@@ -2,10 +2,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
+import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/icon_and_text_widget.dart';
 import 'package:food_delivery/widgets/small_text.dart';
-
-import '../widgets/big_text.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -40,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slider section
         Container(
           // color: Colors.redAccent,
           height: Dimensions.pageView,
@@ -51,6 +51,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             },
           ),
         ),
+        //dots
         DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -60,7 +61,115 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeSize: const Size(18.0, 9.0),
             activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
           ),
-        )
+        ),
+        //popular text
+        SizedBox(height: Dimensions.height30,),
+        Container(
+          margin: EdgeInsets.only(
+            left: Dimensions.width30,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              SizedBox(width: Dimensions.width10,),
+              Container(
+                margin: EdgeInsets.only(bottom: 3),
+                child: BigText(
+                  text: ".",
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(width: Dimensions.width10,),
+              Container(
+                margin: EdgeInsets.only(bottom: 2),
+                child: SmallText(
+                  text: 'Food pairing',
+                ),
+              )
+            ],
+          ),
+        ),
+        //List of food and images
+        ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index){
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    //image section
+                    Container(
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(Dimensions.radius20),
+                          color: Colors.white38,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                  "assets/images/food1.png"
+                              )
+                          )
+                      ),
+                    ),
+                    //text container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.listViewTextContSize,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimensions.radius20),
+                                bottomRight: Radius.circular(Dimensions.radius20)
+                            ),
+                            color: Colors.white
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimensions.width10,
+                              right: Dimensions.width10
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BigText(text: "Nutritious fruit meat in china"),
+                              SizedBox(height: Dimensions.height10,),
+                              SmallText(text: "With chinese characteristics"),
+                              SizedBox(height: Dimensions.height10,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconAndTextWidget(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1),
+                                  IconAndTextWidget(
+                                      icon: Icons.location_on,
+                                      text: "1.7km",
+                                      iconColor: AppColors.mainColor),
+                                  IconAndTextWidget(
+                                      icon: Icons.access_time_rounded,
+                                      text: "32min",
+                                      iconColor: AppColors.iconColor2),
+                                ],
+                              )
+
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+
+                  ],
+                ),
+              );
+            })
     ],
     );
   }
@@ -93,7 +202,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           children: [
             Container(
               height: Dimensions.pageViewContainer,
-              margin: EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.only(
+                  left: Dimensions.width10,
+                  right: Dimensions.width10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: index.isEven
@@ -109,7 +220,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: Dimensions.pageViewTextContainer,
-                margin: EdgeInsets.only(left: 30, right: 30, bottom: 30),
+                margin: EdgeInsets.only(
+                    left: Dimensions.width30,
+                    right: Dimensions.width30,
+                    bottom: Dimensions.height30),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: Colors.white,
@@ -137,17 +251,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       BigText(text: 'Chinese Side'),
                       SizedBox(height: Dimensions.height10,),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Wrap(
                             children: List.generate(5, (index) {
-                              return Icon(Icons.star, color: AppColors.mainColor,);
+                              return Icon(Icons.star, color: AppColors.mainColor,size: Dimensions.iconSize10,);
                             })
                           ),
-                          SizedBox(width: 10,),
+                          SizedBox(width: Dimensions.width10,),
                           SmallText(text: "4.5"),
-                          SizedBox(width: 10,),
+                          SizedBox(width: Dimensions.width10,),
                           SmallText(text: '1287'),
-                          SizedBox(width: 10,),
+                          SizedBox(width: Dimensions.width10,),
                           SmallText(text: 'comments')
                         ],
                       ),

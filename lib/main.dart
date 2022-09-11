@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/home/main_food_page.dart';
+import 'package:food_delivery/pages/food/popular_food_detail.dart';
 import 'package:get/get.dart';
+import 'pages/home/main_food_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const MainFoodPage()
+      home: const PopularFoodDetail()
     );
   }
 }

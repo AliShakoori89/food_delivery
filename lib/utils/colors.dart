@@ -10,5 +10,5 @@ class AppColors{
   static const Color titleColor = Color(0xFF5c524f);
   static const Color mainBlackColor = Color(0xFF332d2b);
   static const Color yellowColor = Color(0xFFffd379);
-
+  static const Color paraColor = Color(0x8A150303);
 }

@@ -23,7 +23,8 @@ class ApiClient extends GetConnect implements GetxService{
       print('true');
 
       Response response = await get(uri);
-      print('&&&&&&&     '+response.statusCode.toString());
+
+      print('***************    ');
 
       return response;
     }catch(e){

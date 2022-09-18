@@ -14,7 +14,7 @@ class CartController extends GetxController{
   Map<int, CartModel> get items => _items;
 
   void addItem(ProductModel product, int quantity){
-    if(_items.containsKey(product.id!)){
+    if(_items.containsKey(product.id)){
       _items.update(product.id!, (value){
         return CartModel(
           id: value.id,
@@ -52,7 +52,9 @@ class CartController extends GetxController{
     if(_items.containsKey(product.id)){
       return true;
     }
-    return false;
+    else {
+      return false;
+    }
   }
 
   int getQuantity(ProductModel product){

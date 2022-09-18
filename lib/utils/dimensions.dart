@@ -46,4 +46,7 @@ class Dimensions{
 
   //bottom height
   static double bottomHeightBar = screenHeight/7.03;
+
+  static double size20 = screenHeight / 34.15;
+  static double size25 = screenHeight / (screenHeight / 25);
 }

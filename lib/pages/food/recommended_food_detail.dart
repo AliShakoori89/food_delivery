@@ -49,11 +49,12 @@ class RecommendedFoodDetail extends StatelessWidget {
                           top: 0,
                           child: GestureDetector(
                             onTap: (){
-                                Get.to(()=> CartPage());
+                              if(controller.totalItems >= 1)
+                                Get.toNamed(RouteHelper.getCartPage());
                             },
                             child: AppIcon(icon: Icons.circle, size: 20, iconColor: Colors.transparent, backgroundColor: AppColors.mainColor,)))
                           : Container(),
-                      Get.find<PopularProductController>().totalItems >= 1
+                      controller.totalItems >= 1
                           ? Positioned(
                           right: 3,
                           top: 3,

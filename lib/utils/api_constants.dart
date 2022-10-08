@@ -7,4 +7,6 @@ class AppConstants{
   static const String uploadURL = "/uploads/";
 
   static const String token = 'DBtoken';
+  static const String cartList = "cart-List";
+  static const String cartHistoryList = "cart-history-list";
 }

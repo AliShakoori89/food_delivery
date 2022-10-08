@@ -49,4 +49,8 @@ class Dimensions{
 
   static double size20 = screenHeight / 34.15;
   static double size25 = screenHeight / (screenHeight / 25);
+
+  //splash screen dimensions
+  static double splashImg = screenHeight / 3.38;
+
 }

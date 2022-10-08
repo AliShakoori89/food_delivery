@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/popular_product_controller.dart';
 import 'package:food_delivery/controllers/recommended_product_controller.dart';
 import 'package:food_delivery/routes/route_helper.dart';
+import 'package:food_delivery/utils/dimensions.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
 
     Timer(const Duration(seconds: 3),
-            ()=> Get.offNamed(RouteHelper.initial));
+            ()=> Get.offNamed(RouteHelper.getInitial()));
   }
 
   @override
@@ -47,8 +48,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         children: [
           ScaleTransition(
               scale: animation,
-              child: Image.asset("assets/image/logo part 1.png", width: 250,)),
-          Image.asset("assets/image/logo part 2.png", width: 250,)
+              child: Center(
+                  child: Image.asset("assets/image/logo part 1.png",
+                    width: Dimensions.splashImg,))),
+          Center(
+            child: Image.asset("assets/image/logo part 2.png",
+              width: Dimensions.splashImg,),
+          )
         ],
       ),
     );

@@ -1,13 +1,12 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/base/no_data_page.dart';
 import 'package:food_delivery/controllers/cart_controller.dart';
 import 'package:food_delivery/models/cart_model.dart';
 import 'package:food_delivery/routes/route_helper.dart';
+import 'package:food_delivery/utils/api_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/constants.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
 import 'package:food_delivery/widgets/big_text.dart';
@@ -124,8 +123,7 @@ class CartHistory extends StatelessWidget {
                                                         fit: BoxFit.cover,
                                                         image: NetworkImage(
                                                           AppConstants.baseUrl +
-                                                              AppConstants
-                                                                  .uploadUrl +
+                                                              AppConstants.uploadURL+
                                                               getCartHistoryList[
                                                                       listCounter -
                                                                           1]

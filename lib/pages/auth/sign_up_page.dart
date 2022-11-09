@@ -4,6 +4,7 @@ import 'package:food_delivery/base/custom_loader.dart';
 import 'package:food_delivery/base/show_custom_snak_bar.dart';
 import 'package:food_delivery/controllers/auth_controller.dart';
 import 'package:food_delivery/models/sign_up_body_model.dart';
+import 'package:food_delivery/routes/route_helper.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:get/get.dart';
@@ -54,7 +55,7 @@ class SignUpPage extends StatelessWidget {
           password: password);
         authController.registration(signUpBody).then((status){
           if(status.isSuccess){
-
+            Get.offNamed(RouteHelper.getInitial());
           }else{
             showCustomSnackBar(status.message);
           }
@@ -116,7 +117,7 @@ class SignUpPage extends StatelessWidget {
                 },
                 child: Container(
                   width: Dimensions.screenWidth/2,
-                  height: Dimensions.screenWidth/13,
+                  height: Dimensions.screenWidth/10,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius30),
                       color: AppColors.mainColor
@@ -124,7 +125,7 @@ class SignUpPage extends StatelessWidget {
                   child: Center(
                     child: BigText(
                       text: "Sign up",
-                      size: Dimensions.font20+Dimensions.font20/2,
+                      size: Dimensions.font20+Dimensions.font20/4,
                       color: Colors.white,
                     ),
                   ),

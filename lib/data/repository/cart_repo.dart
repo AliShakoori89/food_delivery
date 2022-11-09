@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:food_delivery/models/cart_model.dart';
-import 'package:food_delivery/utils/api_constants.dart';
+import 'package:food_delivery/utils/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CartRepo {
@@ -69,5 +69,11 @@ class CartRepo {
   void removeCart() {
     cart = [];
     sharedPreferences.remove(AppConstants.cartList);
+  }
+
+  void clearCartHistory(){
+    removeCart();
+    cartHistory=[];
+    sharedPreferences.remove(AppConstants.cartHistoryList);
   }
 }

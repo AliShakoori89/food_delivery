@@ -13,7 +13,7 @@ class AuthRepo{
     required this.sharedPreferences});
 
   Future<Response> registration(SignUpBodyModel signUpBody) async {
-    return await apiClient.postData(AppConstants.registrationUri, signUpBody.toJson());
+    return await apiClient.postData(AppConstants.registrationURI, signUpBody.toJson());
   }
 
   bool userLoggedIn(){

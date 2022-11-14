@@ -12,7 +12,8 @@ class AppConstants{
   static const String userInfoURI = '/api/v1/customer/info';
 
   static const String userAddress = 'user_address';
-  static const String addUserAddress = '/api/v1/cusotmer/address/add';
+  static const String addUserAddress = '/api/v1/customer/address/add';
+  static const String addressListURI = '/api/v1/customer/address/list';
   static const String geocodeURI = '/api/v1/config/geocode-api';
 
   static const String token = '';
